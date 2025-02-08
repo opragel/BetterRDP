@@ -30,9 +30,9 @@ Windows Registry Editor Version 5.00
 "AVC444ModePreferred"=dword:00000001
 "AVCHardwareEncodePreferred"=dword:00000001
 
-;Optimize the capture frame rate for RDP sessions to achieve 60 FPS.
+;Optimize the capture frame rate for RDP sessions to achieve 120 FPS.
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services]
-"VGOptimization_CaptureFrameRate"=dword:0000003c
+"VGOptimization_CaptureFrameRate"=dword:00000078
 
 ;Optimize the compression ratio for improved image quality over RDP.
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services]
@@ -53,10 +53,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
 "SystemResponsiveness"=dword:00000000
 
+;Commented out by default, not sure if still relevant
 ;Sets the interval for desktop composition (DWM) - 60 FPS.
 ;Source: https://support.microsoft.com/en-us/help/2885213/frame-rate-is-limited-to-30-fps-in-windows-8-and-windows-server-2012-r
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations]
-"DWMFRAMEINTERVAL"=dword:0000000f
+;"DWMFRAMEINTERVAL"=dword:0000000f
 
 ;Remove artificial latency delays in RDP.
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
@@ -67,8 +68,9 @@ Windows Registry Editor Version 5.00
 "DisableBandwidthThrottling"=dword:00000001
 
 ;Enabling Large MTU packets can improve network performance.
-"DisableLargeMtu"=dword:00000000
+;"DisableLargeMtu"=dword:00000000
 
+; DEPRECATED
 ; This setting is optional and affects the display driver model used in RDP sessions.
 ; Uncomment the following lines if you wish to use XDDM drivers on Nvidia cards.
 ; Note: May not be beneficial for AMD cards or certain configurations.
